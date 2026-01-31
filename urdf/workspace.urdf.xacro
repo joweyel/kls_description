@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="workspace">
+
+    <!-- Insert Macros -->
+    <xacro:include filename="$(find klaus_description)/urdf/workspace_macro.xacro" />
+
+    <!-- Parameters -->
+    <xacro:arg name="prefix" default="" />
+
+    <!-- Create base link -->
+    <link name="$(arg prefix)base_link" />
+
+    <!-- Wrokspace -->
+    <xacro:workspace prefix="$(arg prefix)" parent="$(arg prefix)base_link">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    </xacro:workspace>
+
+</robot>

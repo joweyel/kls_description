@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!-- <robot xmlns:xacro="http://wiki.ros.org/xacro" name="klaus"> -->
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="igus_rebel_workspace_with_gripper">
+
+
+  <!-- Macros (Arm, Gripper, Camera) -->
+  <xacro:include filename="$(find igus_rebel_description)/urdf/igus_rebel2.urdf" />
+  <xacro:include filename="$(find igus_rebel_description)/urdf/igus_rebel2.control.xacro" />
+  <xacro:include filename="$(find rebel_gripper)/urdf/rebel_gripper_macro.xacro" />
+  <xacro:include filename="$(find camera_holder_description)/urdf/camera_holder_macro.xacro" />
+
+  <!-- Parameters -->
+  <xacro:arg name="tf_prefix" default="" />
+  <xacro:arg name="hardware_protocol" default="rebel" />
+  <xacro:arg name="gripper_type" default="none" />
+
+  <!-- camera parameters -->
+  <xacro:arg name="use_camera" default="false" />
+  <xacro:arg name="camera_tilt_degrees" default="0.0" />
+
+  <!-- robot end-effector link name -->
+  <xacro:property name="robot_tool_link" value="link6" />
+
+  <!-- Convert args to properties for conditionals -->
+  <xacro:property name="gripper_type" value="$(arg gripper_type)" />
+
+  <!-- 100°: Rebel Gripper from EduMove not attachable in axis-aligned way -->
+  <xacro:arg name="gripper_orientation" default="1.7453" />
+
+  <!--*****************************************************************************-->
+
+  <!-- Create link fixed to the "world" -->
+  <link name="world" />
+
+  <!-- Camera holder (optional) -->
+  <xacro:if value="$(arg use_camera)">
+    <xacro:camera_holder
+      parent="world"
+      prefix=""
+      camera_tilt_degrees="$(arg camera_tilt_degrees)">
+      <origin xyz="-0.22 0.48 1.10" rpy="0.0 ${pi/2} 0.0" />
+    </xacro:camera_holder>
+  </xacro:if>
+
+  <!-- [world] -> [base_link] -->
+  <joint name="world_to_robot_base" type="fixed">
+    <parent link="world" />
+    <child link="base_link" />
+    <origin xyz="0 0 0" rpy="0 0 1.5708" />  <!--Correcting initial orientation-->
+  </joint>
+
+  <!-- Robot control for igus rebel arm -->
+  <xacro:igus_rebel_control
+    arm_id="rebel_arm"
+    hardware_protocol="$(arg hardware_protocol)" />
+
+
+  <!-- ===========================================
+       ==             Load Gripper              ==
+       ===========================================-->
+
+  <!-- Igus Rebel Gripper -->
+  <xacro:if value="${gripper_type == 'rebel'}">
+    <xacro:rebel_gripper
+      prefix="$(arg tf_prefix)"
+      parent="${robot_tool_link}"
+      orientation="0.0">
+      <!-- Offset from `link6` -->
+      <origin xyz="0.0 0.0 0.052" rpy="0 0 $(arg gripper_orientation)" />
+    </xacro:rebel_gripper>
+  </xacro:if>
+
+  <!-- no gripper (fallback) -->
+  <xacro:if value="${gripper_type == 'none'}"></xacro:if>
+
+</robot>

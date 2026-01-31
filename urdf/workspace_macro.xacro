@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:macro name="workspace"
+        params="prefix parent use_camera:=false camera_tilt_degrees:=0.0 *origin">
+
+        <!-- workspace links -->
+        <link name="${prefix}table_link">
+            <visual>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+                <geometry>
+                    <mesh filename="package://klaus_description/meshes/visual/klaus_table.dae"
+                        scale="1.0 1.0 1.0" />
+                </geometry>
+                <material name="workspace_grey">
+                    <color rgba="0.7 0.7 0.7 1.0" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+                <geometry>
+                    <mesh
+                        filename="package://klaus_description/meshes/collision/klaus_table_collision.stl"
+                        scale="1.0 1.0 1.0" />
+                </geometry>
+            </collision>
+        </link>
+
+        <!-- base joint -->
+        <joint name="${prefix}_table_joint" type="fixed">
+            <parent link="${parent}" />
+            <child link="${prefix}table_link" />
+            <xacro:insert_block name="origin" />
+        </joint>
+
+        <!-- Optional camera holder integration -->
+        <xacro:if value="${use_camera}">
+            <xacro:include
+                filename="$(find camera_holder_description)/urdf/camera_holder_macro.xacro" />
+            <xacro:camera_holder
+                parent="${prefix}table_link"
+                prefix="${prefix}"
+                camera_tilt_degrees="${camera_tilt_degrees}">
+                <origin xyz="-0.22 0.48 1.10" rpy="0.0 ${pi/2} 0.0" />
+            </xacro:camera_holder>
+        </xacro:if>
+
+    </xacro:macro>
+</robot>
