@@ -4,7 +4,7 @@
   <name>klaus_description</name>
   <version>0.0.1</version>
   <description>"Schlauer Klaus" environment description for MoveIt 2 and RViz2</description>
-  <maintainer email="johannes.weyel@et.hs-fulda.de">fdet0203</maintainer>
+  <maintainer email="johannes.weyel@et.hs-fulda.de">johannes</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
