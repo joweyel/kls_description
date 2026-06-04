@@ -11,11 +11,11 @@ def generate_launch_description():
     """Visualize only Klaus workspace table in RViz."""
 
     # Get package path
-    klaus_description_pkg = get_package_share_directory("klaus_description")
+    kls_description_pkg = get_package_share_directory("kls_description")
 
     # Paths
-    xacro_file = os.path.join(klaus_description_pkg, "urdf", "workspace.urdf.xacro")
-    rviz_config = os.path.join(klaus_description_pkg, "rviz", "view_workspace.rviz")
+    xacro_file = os.path.join(kls_description_pkg, "urdf", "workspace.urdf.xacro")
+    rviz_config = os.path.join(kls_description_pkg, "rviz", "view_workspace.rviz")
 
     # Robot description
     robot_description = {

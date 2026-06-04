@@ -8,7 +8,7 @@
             <visual>
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
                 <geometry>
-                    <mesh filename="package://klaus_description/meshes/visual/klaus_table.dae"
+                    <mesh filename="package://kls_description/meshes/visual/kls_table.dae"
                         scale="1.0 1.0 1.0" />
                 </geometry>
                 <material name="workspace_grey">
@@ -19,7 +19,7 @@
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
                 <geometry>
                     <mesh
-                        filename="package://klaus_description/meshes/collision/klaus_table_collision.stl"
+                        filename="package://kls_description/meshes/collision/kls_table_collision.stl"
                         scale="1.0 1.0 1.0" />
                 </geometry>
             </collision>

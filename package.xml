@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>klaus_description</name>
+  <name>kls_description</name>
   <version>0.0.1</version>
   <description>"Schlauer Klaus" environment description for MoveIt 2 and RViz2</description>
   <maintainer email="johannes.weyel@protonmail.com">joweyel</maintainer>

@@ -1,4 +1,4 @@
-# klaus_description
+# kls_description
 
 Robot and workspace description for Klaus project (igus ReBeL 6-DOF arm).
 
@@ -12,24 +12,24 @@ Robot and workspace description for Klaus project (igus ReBeL 6-DOF arm).
 ## Build
 
 ```bash
-colcon build --packages-select klaus_description
+colcon build --packages-select kls_description
 ```
 
 ## Quick Start
 
 Visualize robot and Workspace (without gripper):
 ```bash
-ros2 launch klaus_description view_klaus.launch.py
+ros2 launch kls_description view_kls.launch.py
 ```
 
 Visualize robot and Workspace (with gripper):
 ```bash
-ros2 launch klaus_description view_klaus.launch.py gripper_type:=rebel
+ros2 launch kls_description view_kls.launch.py gripper_type:=rebel
 ```
 
 **With camera** (recommended tilt: -17°):
 ```bash
-ros2 launch klaus_description view_klaus.launch.py \
+ros2 launch kls_description view_kls.launch.py \
   gripper_type:=rebel \
   use_camera:=true \
   camera_tilt_degrees:=-17
@@ -37,12 +37,12 @@ ros2 launch klaus_description view_klaus.launch.py \
 
 **Workspace only**:
 ```bash
-ros2 launch klaus_description view_workspace.launch.py
+ros2 launch kls_description view_workspace.launch.py
 ```
 
 ## Arguments
 
-### view_klaus.launch.py
+### view_kls.launch.py
 - `gripper_type`: `none` (default), `rebel`
 - `use_camera`: `true`/`false` (default: `false`)
 - `camera_tilt_degrees`: Tilt angle in degrees (default: 0.0)

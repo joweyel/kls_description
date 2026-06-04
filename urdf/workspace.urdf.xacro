@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="workspace">
 
     <!-- Insert Macros -->
-    <xacro:include filename="$(find klaus_description)/urdf/workspace_macro.xacro" />
+    <xacro:include filename="$(find kls_description)/urdf/workspace_macro.xacro" />
 
     <!-- Parameters -->
     <xacro:arg name="prefix" default="" />

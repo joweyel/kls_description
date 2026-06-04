@@ -21,15 +21,15 @@ def generate_launch_description():
     """
 
     # Get package path
-    klaus_description_pkg = get_package_share_directory("klaus_description")
-    xacro_file = os.path.join(klaus_description_pkg, "urdf", "klaus.urdf.xacro")
-    workspace_file = os.path.join(klaus_description_pkg, "urdf", "workspace.urdf.xacro")
-    rviz_config_file = os.path.join(klaus_description_pkg, "rviz", "view_klaus.rviz")
+    kls_description_pkg = get_package_share_directory("kls_description")
+    xacro_file = os.path.join(kls_description_pkg, "urdf", "kls.urdf.xacro")
+    workspace_file = os.path.join(kls_description_pkg, "urdf", "workspace.urdf.xacro")
+    rviz_config_file = os.path.join(kls_description_pkg, "rviz", "view_kls.rviz")
 
     # Launch Arguments
 
     name_arg = DeclareLaunchArgument(
-        "name", default_value="klaus", description="Name of 'robot'"
+        "name", default_value="kls", description="Name of 'robot'"
     )
 
     gripper_type_arg = DeclareLaunchArgument(
@@ -66,7 +66,7 @@ def generate_launch_description():
         prefix_arg,
     ]
 
-    name = LaunchConfiguration("name", default="klaus")
+    name = LaunchConfiguration("name", default="kls")
     gripper_type = LaunchConfiguration("gripper_type", default=None)
     use_camera = LaunchConfiguration("use_camera", default=False)
     camera_tilt_degrees = LaunchConfiguration("camera_tilt_degrees")
