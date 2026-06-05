@@ -11,6 +11,9 @@
 
   <depend>urdf</depend>
   <depend>xacro</depend>
+  <depend>igus_rebel_description</depend>
+  <depend>rebel_gripper</depend>
+  <depend>camera_holder_description</depend>
 
   <exec_depend>robot_state_publisher</exec_depend>
   <exec_depend>joint_state_publisher_gui</exec_depend>

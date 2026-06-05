@@ -2,6 +2,7 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 
 from launch import LaunchDescription
 from launch.substitutions import Command, FindExecutable
@@ -19,12 +20,15 @@ def generate_launch_description():
 
     # Robot description
     robot_description = {
-        "robot_description": Command(
-            [
-                FindExecutable(name="xacro"),
-                " ",
-                xacro_file,
-            ]
+        "robot_description": ParameterValue(
+            Command(
+                [
+                    FindExecutable(name="xacro"),
+                    " ",
+                    xacro_file,
+                ]
+            ),
+            value_type=str,
         )
     }
 
