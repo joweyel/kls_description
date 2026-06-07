@@ -77,3 +77,8 @@ In the real and modeled workspacee below the following elements are present:
 | **`Real Workspace Environment`**    | **`Modelled Workspace Environment`**   |
 | ----------------------------------- | -------------------------------------- |
 | ![rviz_robot](./assets/real_ws.jpg) | ![rviz_gripper](./assets/model_ws.png) |
+
+
+### Articulation of Robot Arm in Workspace
+
+https://github.com/user-attachments/assets/645409ca-f4be-4406-9919-07d2d0be212f
