@@ -2,6 +2,19 @@
 
 Robot and workspace description for Klaus project (igus ReBeL 6-DOF arm).
 
+| **`Workspace`**                                     | **`Robot Arm (IGUS Rebel 6-DOF)`**            | **`Gripper (IGUS Rebel Gripper)`**                    | **`Camera (Intel Realsense D435)`**                   |
+| --------------------------------------------------- | --------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| ![rviz_workspace](./assets/component_workspace.png) | ![rviz_arm](./assets/component_rebel_arm.png) | ![rviz_gripper](./assets/component_rebel_gripper.png) | ![rviz_camera](./assets/component_rs_D435_camera.png) |
+
+
+## Overview
+
+This package provides URDF models and visualization configurations for the Klaus robot system, including:
+- **Robot arm**: igus ReBeL 6-DOF manipulator
+- **Gripper options**: None or ReBeL gripper
+- **Camera**: Intel Realsense D435 (optional)
+- **Workspace**: Table and environment visualization
+
 ## Contents
 
 - [`urdf/`](urdf/) - Robot and workspace URDF models
@@ -49,3 +62,18 @@ ros2 launch kls_description view_workspace.launch.py
 
 ### view_workspace.launch.py
 No arguments (workspace only visualization)
+
+
+## Visualization
+
+In the real and modeled workspacee below the following elements are present:
+
+ - Workspace Table
+ - IGUS ReBeL Arm
+ - ReBeL Gripper
+ - Realsense D435 Camera
+
+
+| **`Real Workspace Environment`**    | **`Modelled Workspace Environment`**   |
+| ----------------------------------- | -------------------------------------- |
+| ![rviz_robot](./assets/real_ws.jpg) | ![rviz_gripper](./assets/model_ws.png) |
